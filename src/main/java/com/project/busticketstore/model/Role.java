@@ -5,14 +5,29 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.Set;
 
 @Entity
-@Table(name = "role")
-@Setter
 @Getter
-@AllArgsConstructor
+@Setter
+
 @NoArgsConstructor
-public class Role extends BaseEntity<Long> {
+@AllArgsConstructor
+public class Role extends BaseEntity<Long>implements Serializable {
+    @Column(unique = true)
+    private String name;
+
+    @ElementCollection(targetClass = com.project.busticketstore.model.Authority.class, fetch = FetchType.EAGER)
+    @Enumerated(EnumType.STRING)
+    private Set<Authority> authorities;
+
+    @Override
+    public String toString() {
+        return "Role{" +
+                "name='" + name + '\'' +
+                ", authorities=" + authorities +
+                '}';
+    }
 }

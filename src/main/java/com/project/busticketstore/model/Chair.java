@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -15,4 +17,12 @@ import javax.persistence.Table;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Chair extends BaseEntity<Long> {
+
+    private Boolean isBusy;
+    @ManyToOne
+    @JoinColumn(name = "bus_id")
+    private Bus bus;
+    @ManyToOne
+    @JoinColumn(name = "travel_id")
+    private Travel travel;
 }

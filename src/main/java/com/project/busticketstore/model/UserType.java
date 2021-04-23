@@ -1,9 +1,5 @@
 package com.project.busticketstore.model;
 
-
-
-public enum Authority  {
- 
-
-
+public enum UserType {
+    CUSTOMER,DRIVER
 }
