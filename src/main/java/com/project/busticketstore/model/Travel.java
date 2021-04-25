@@ -42,11 +42,11 @@ public class Travel extends BaseEntity<Long> {
     private City origin;
 
     @ManyToMany
-   @JoinTable(
-           name = "travel-destination"
-           ,joinColumns = @JoinColumn(name = "travel_id")
-           ,inverseJoinColumns = @JoinColumn(name = "destination_id")
-   )
+    @JoinTable(
+            name = "travel_destination"
+            ,joinColumns = @JoinColumn(name = "travel_id")
+            ,inverseJoinColumns = @JoinColumn(name = "destination_id")
+    )
     private Set<City> destination;
 
 }

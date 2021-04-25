@@ -32,8 +32,8 @@ public  class User extends BaseEntity<Long> {
     private String email;
     @Column(name = "national_code", nullable = false, unique = true)
     private String nationalCode;
-    @Column(name = "profile_photo")
-    private String profilePhoto;
+    @Column(name = "mobile_number", nullable = false, unique = true)
+    private String mobileNumber;
     @Column(name = "is_active")
     private Boolean isActive;
     @Column(name = "create_at",updatable = false)
