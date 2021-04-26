@@ -7,6 +7,7 @@ import com.project.busticketstore.model.UserType;
 import com.project.busticketstore.repository.UserRepository;
 import com.project.busticketstore.service.UserService;
 import com.project.busticketstore.util.exception.UserAlreadyExistException;
+import com.project.busticketstore.util.exception.UserNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -40,7 +41,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User findById(Long id) {
-        return null;
+        return userRepository.findById(id).orElseThrow(()->new UserNotFoundException("user by id :"+id+" Not Found"));
     }
 
     @Override
