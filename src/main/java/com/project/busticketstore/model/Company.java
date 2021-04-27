@@ -18,6 +18,6 @@ import javax.persistence.Table;
 public class Company  extends BaseEntity<Long>{
     @Column(name = "name",nullable = false,unique = true)
     private String name;
-    private String logo;
+//    private String logo;
     private Boolean isActive;
 }
