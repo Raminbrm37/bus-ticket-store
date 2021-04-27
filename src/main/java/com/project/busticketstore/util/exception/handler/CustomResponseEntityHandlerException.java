@@ -1,5 +1,7 @@
 package com.project.busticketstore.util.exception.handler;
 
+import com.project.busticketstore.util.exception.CompanyAlreadyException;
+import com.project.busticketstore.util.exception.CompanyNotFoundException;
 import com.project.busticketstore.util.exception.UserAlreadyExistException;
 import com.project.busticketstore.util.exception.UserNotFoundException;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
@@ -42,6 +44,18 @@ public class CustomResponseEntityHandlerException extends ResponseEntityExceptio
         ExceptionResponse exceptionResponse = new ExceptionResponse(new Date(), e.getMessage(), request.getDescription(false));
 
         return new ResponseEntity(exceptionResponse, HttpStatus.NOT_FOUND);
+    }
+    @ExceptionHandler(CompanyNotFoundException.class)
+    public final ResponseEntity<Object> userNotFound(CompanyNotFoundException e, WebRequest request) {
+        ExceptionResponse exceptionResponse = new ExceptionResponse(new Date(), e.getMessage(), request.getDescription(false));
+
+        return new ResponseEntity(exceptionResponse, HttpStatus.NOT_FOUND);
+    }
+  @ExceptionHandler(CompanyAlreadyException.class)
+    public final ResponseEntity<Object> userNotFound(CompanyAlreadyException e, WebRequest request) {
+        ExceptionResponse exceptionResponse = new ExceptionResponse(new Date(), e.getMessage(), request.getDescription(false));
+
+        return new ResponseEntity(exceptionResponse, HttpStatus.BAD_REQUEST);
     }
 
     @Override
