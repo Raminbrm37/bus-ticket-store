@@ -1,2 +1,2 @@
-# bus-ticket-store- REST ful Api webService
+# Bus-Ticket-Store- REST ful Api webService
 
